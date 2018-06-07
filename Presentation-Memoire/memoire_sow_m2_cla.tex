@@ -1,0 +1,216 @@
+\documentclass[12pt]{report}
+\usepackage[english]{babel}
+\usepackage{natbib}
+\usepackage{url}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{vmargin}
+\usepackage{colortbl}
+\usepackage{hyperref}
+\setmarginsrb{3 cm}{2.5 cm}{3 cm}{2.5 cm}{1 cm}{1.5 cm}{1 cm}{1.5 cm}
+
+\author{SOW Sokhna Maimouna} % Author
+
+\makeatletter
+\let\theauthor\@author
+\renewcommand{\thesection}{\@arabic\c@section}
+
+
+\makeatother
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\theauthor}
+\rhead{\rightmark}
+\lfoot{Universite Paris Nanterre}
+%\rfoot{Cosmo Consult}
+\cfoot{\thepage}
+\renewcommand{\footrulewidth}{0.4pt}%trait horizontal pour le pied de page
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%
+%%% First page %%%
+%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+\begin{center}
+
+\includegraphics[width=0.6\textwidth]{fac}\\[1cm]
+
+{\large Méthodes Informatiques Appliquées à la Gestion de l'Entreprise}\\[0.8cm]
+
+
+{\large \textbf{Mémoire Master 2 Classique}}\\[0.5cm]
+
+\vfill
+
+% Title
+\rule{\linewidth}{0.5mm} \\[0.4cm]
+{ \huge \bfseries Comment intégrer les blockchains dans les transactions bancaires ?  \\[0.4cm] }
+\rule{\linewidth}{0.5mm} \\[1.5cm]
+
+\vfill
+
+% Author and supervisor
+\noindent
+\begin{minipage}{0.4\textwidth}
+  \begin{flushleft} \large
+    \emph{Auteur :}\\
+   Sokhna Maimouna \textsc{SOW}\\
+  \end{flushleft}
+\end{minipage}%
+\begin{minipage}{0.4\textwidth}
+  \begin{flushright} \large
+    \emph{Encadrant :} \\
+   Mme Marie-Pierre \textsc{Gervais}\\
+  \end{flushright}
+\end{minipage}
+
+\vfill
+
+% Bottom of the page
+{\large Année scolaire \\ 2017 - 2018}
+
+\end{center}
+\end{titlepage}
+
+%page de garde
+\thispagestyle{empty}
+\newpage
+~
+
+\newpage
+\section{Remerciements}
+\hspace{1cm} On remercie tt le monde.\\ 
+
+\hspace{1cm} On continue de remercier.\\ 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\renewcommand{\contentsname}{Table des matières}
+\tableofcontents
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introduction}
+\hspace{1cm} Notre monde évolue au rythme des innovations et des nouvelles technologies. Aujourd'hui, nous sommes témoins d'une nouvelle révolution mondiale avec une portée assez difficile à mesurer mais mettant en avance des possibilités d'applications infinies. Cette révolution est marquée par le phénomène "\textbf{blockchain}". Elle est née du croisement d'une technologie cryptographique de pointe basée sur les registres distribués et d'un contexte sociologique opportun. Le cas de la blockchain est juste \textit{phénoménale}. En effet la rapidité de son développement technologique coïncide avec un contexte sociologique favorable, ce qui augmente les chances de tirer profit des grandes innovations technologiques en les transformant en un vrai usage. \\
+
+\hspace{1cm} \textit{Derrière ce concept de blockchain se cachent les cryptomonnaies qui se démarquent des} monnaies traditionnelles sur différents plans. Non seulement elles sont dématérialisées, anonymes, sécurisées mais ces devises peuvent s'échanger entre elles et permettent de faire des transactions bancaires. Et pendant ce temps, nous avons un système bancaire avec un réseau trop organisé, encadré et centralisé qui est bien construit et trop hiérarchisé avec des dirigeants qui contrôlent tout le système et ont toujours le dernier mot.\\
+
+\hspace{1cm} Face à cette situation, il me semble opportun de s'interroger sur la performance et l'avenir des banques. Puisque c'est assez difficile de contourner les banques, cela me pousse à chercher comment procéder à mettre en place en place les blockchains afin de faciliter le monde monétaire de demain? Comment intégrer les blockchains dans les transactions bancaires ? Quels sont les acteurs à impliquer ? Tellement de questions qui me motivent à faire à faire une étude approfondie et dans la mesure du possible trouver une solution pour faire cohabiter les banques et les blockchains.\\
+
+\hspace{1cm} A travers ces lignes je vais d'abord expliquer ce que c'est la blockchain en partant de sa création jusqu'à son processus final en détaillant son architecture et voir les différentes blockchains qui existent de nos jours. Ensuite j'étudierais l'impact des blockchains dans l'actualité économique sans oublier de mettre en évidence les faiblesses de cette nouvelle technologique et répondre aux questions posées précédemment...... QUOI RAJOUTER OU COMMENT REFORMULER
+
+
+%%%%%%%%%%%%%% Glossaire %%%%%%%%%%%%%%
+\newpage
+\section{Glossaire}
+\begin{tabular}{|c|c|}
+\hline 
+\rowcolor{green}KEY & Value \\
+
+\hline
+Subprimes & Prêts immobiliers accordées aux américains ne remplissant \\ & pas les conditions pour un prêt classique \\ 
+
+\hline 
+BTC & Symbole utilisé pour représenter l'unité de compte du bitcoin \\ 
+
+\hline 
+\end{tabular} 
+
+\newpage
+\section{Fonctionnement de la blockchain}
+\hspace{1cm}  La blockchain fonctionne principalement avec une monnaie ou avec un token, c'est à dire un jeton, programmable.\\  A COMPLETER....
+
+	\subsection{Historique}
+\hspace{1cm} Tout a commencé par un groupe de 'geek' auto-organisé, sans hiérarchie et sans État qu'on appelle des \textbf{crypto-anarchistes}. Ces crypto-anarchistes savaient coder les données de façon à ce que personne d'autre que le destinataire ne puisse les déchiffrer. Ils se sont mis à "crypter des monnaies" d'où la naissance des\textbf{ monnaies virtuelles} appelées aussi \textbf{cryptomonnaie}. Si ces cryptomonnaies remontent aux années 70, ce phénomène devient célèbre qu'en début de 2009 avec la création de la blockchain et du bitcoin.\\
+
+\hspace{1cm} En effet vers 2008, il y a eu une crise financière des subprimes. Les banques déclenchent alors la planche à billet afin de créer des euros et des dollars pour maintenir le système bancaire à flots. Et c'est vers cette même période précise qu'un certain \textbf{Satoshi Nakamoto}, un pseudo qui lui est attribué, publie un livre blanc, dans un forum de discussion, appelé \textbf{\textit{Bitcoin - A Per to Per Electonic Cash System }} qui va révolutionner le monde monétaire. C'est ainsi qu'on assiste à la naissance  de la première monnaie virtuelle décentralisée, qui fonctionne principalement avec la blockchain. \\ 
+
+\hspace{1cm} De ce fait la première blockchain est apparue avec la monnaie numérique bitcoin. Aussitôt le marché virtuel se met à utiliser la technologie de la blockchain et plusieurs activités on tourné autour de cette technologie naissante. Des plateformes, des sites Internet et même des applications on été mis en place pour la gestion des monnaies virtuelles et une utilisation permanente des blockchains.
+
+	\subsection{Architecture de la blockchain}
+Une blockchain est une technologie de stockage et de transmission d’information sécurisée. Elle constitue une base de données sécurisée et distribuée qui contient toute l’historique de tous des les échanges entre ses utilisateurs depuis sa création. \\
+
+Par ailleur il n’existe pas de banque centrale qui produit cette monnaie bitcoin. En effet, il s’agit d’ordinateurs distincts qui appartiennent au même réseau Bitcoin et qui sont rémunérés contre un service. C’est ce qu’on appelle le \textbf{minage de Bitcoin}. Il est sécurisé par le procédé cryptographique, la preuve de calcul. La difficulté pour quiconque de résoudre ces preuves de calcul assure la sécurité de toutes les transactions.\\
+
+Les transactions effectuées entre les utilisateurs du réseau sont regroupées par blocs. Chaque bloc est validé par les noeuds du réseau appelés les “mineurs”, selon des techniques qui dépendent du type de blockchain. Dans la blockchain du bitcoin cette technique est appelée le “Proof-of-Work”, preuve de travail, et consiste en la résolution de problèmes algorithmiques.\\
+
+Cette base est partagée par les différents utilisateurs sans intermédiaire, donnant la possibilité à chacun de vérifier la validité de la chaîne. Les transactions effectuées entre les utilisateurs du réseau sont regroupées par blocs. Chaque bloc est validé par les noeuds du réseau appelés les “mineurs”, selon des techniques qui dépendent du type de blockchain, qui si elle est publique, fonctionne obligatoirement avec une monnaie programmable. \\
+
+Ici je prendrais Bitcoin qui est un bon exemple de monnaie. Dans la blockchain du bitcoin cette technique est appelée le “Proof-of-Work”,c’est à dire preuve de travail, et consiste en la résolution de problèmes algorithmiques. Une fois le bloc validé, il est horodaté et ajouté à la chaîne de blocs. La transaction est alors visible pour le récepteur ainsi que l’ensemble du réseau. Le caractère décentralisé de cette nouvelle technologie, couplé avec sa sécurité et sa transparence, fait des prouesses aujourd’hui.\\
+
+Toute blockchain publique fonctionne nécessairement avec une monnaie ou un token (jeton) programmable. Bitcoin est un exemple de monnaie programmable.
+
+	\subsection{Les types de blockchain}
+
+
+\newpage
+\section{La place des blockchains dans l'économie}
+
+22 Mai 2010 : Un développeur de Floride, Laszlo Hanyecz, dépense 10 000 BTC pour s’offrir deux pizzas, ce qui représente la première utilisation de monnaie virtuelle « dans le monde réel ».
+
+Mais pourquoi utiliser cette monnaie virtuelle alors que nous avons accès à nos comptes bancaires par internet et nous pouvons faire des virements et des paiements en ligne ?
+Simplement l’anonymat ! La première raison de l’émergence de cette monnaie. Vous pouvez en effet régler vos achats dans l’anonymat le plus complet ce qui vous permet d’éviter tout risque de hacking sur votre compte bancaire courant. Cette monnaie échappe aussi à tout système bancaire mis en place jusqu’ici  donc pas de contrôle et personne ne la maîtrise assez pour la réguler.\\
+
+Contrairement à la monnaie électronique qui est une valeur monétaire, ces cryptomonnaies ne sont pas comptabilisées en unité de compte car elles n'ont pas de statut légal, ce qui fait qu'elles ne sont ni rationalisées par une banque centrale ni délivrées par un quelconque établissement financier.
+
+grâce à son fonctionnement en réseau , la blockchain peut faire l'économie d’une autorité centrale de régulation\\
+
+Juillet 2013 : Mastercoin lance la première ICO (Initial Coin Offering, ou levée de fonds en crypto-monnaie). Les ICOs permettent d’obtenir des jetons, ou tokens, qui sont ensuite échangeables sur les plateformes de crypto-monnaies.
+
+Novembre 2013 : La société Virgin Galactic, qui promet des vols commerciaux dans l’espace, accepte désormais des paiements en bitcoins.
+
+Décembre 2013 : Vitalik Buterin publie son livre blanc dans lequel il décrit son projet Ethereum. Au début de l’année suivante, il met en prévente les premiers ethers (ETH) pour financer son projet.
+
+Février 2015 : Plus de 100 000 commerçants acceptent désormais le bitcoin, aux quatre coins du monde. On citera notamment Microsoft, Dell, Twitch, Expedia ou encore PayPal.
+
+Janvier 2016 : The People’s Bank of China (PBOC) annonce son intention de lancer sa propre crypto-monnaie.
+
+Avril 2016 : Bitstamp arrive au Luxembourg et devient la première plateforme d’échange BTC/EUR à obtenir une licence nationale.
+
+Mai 2017 : Plus de 1 000 monnaies virtuelles circulent sur le marché.
+
+17 Décembre 2017 : Le bitcoin atteint des records et sa valeur approche les 20 000 dollars. Quelques jours plus tard, elle chutera de 30%.
+
+Janvier 2018 : Depuis la Luxembourg House of FinTech, le leader japonais des échanges de cryptomonnaie Bitflyer se lance en Europe après avoir obtenu une licence pour opérer dans l’Union européenne.
+
+	\subsection{Les différents types de transactions}
+Les crypto-monnaies Bitcoin, Ethereum et Ripple se partagent plus de 69pour cent du marché
+
+	    \subsection{1-1-Bitcoin}
+
+9 Février 2011 : Un peu plus de deux ans après la première transaction de bitcoin, la monnaie virtuelle atteint pour la première fois une valeur équivalente au dollar américain.\\
+
+Au printemps dernier, le Bitcoin comme une monnaie légale au Japon, alors qu’elle reste illégale voire même interdite dans beaucoup d’états. Tous les investisseurs qui avaient raté le train en 2009-2010 se ruent donc sur tout ce qui bouge, et de nouvelles monnaies dématérialisées explosent aux yeux du grand public. A tel point que la part de marché du Bitcoin dans ces monnaies est passée de 95pourCent à moins de 60 pourCent. Pour autant, le Bitcoin se porte bien. Sa parité avec le dollar n’a jamais été autant à son avantage, ayant dépassé les prévisions des spécialistes franchissant le seuil des 10 000 dollard pour un Bitcoin.
+
+	    \subsection{1-2-Ripple}
+
+2012 : Lancement de Ripple, un réseau de transactions qui contient également une crypto-devise, les Ripples (XRP).\\
+
+Ainsi, la technologie d'un acteur comme Ripple permet aux banques de négocier entre elles au niveau mondial sans passer un opérateur central. Ses partenaires incluent UBS, Santander et Standard Chartered. Par ailleurs, UBS et Santander travaillent aussi de leur côté sur un autre projet de blockchain, dénommé Utility Settlement Coin, qui leur permettra d’effectuer des paiements dans diverses devises avec Deutsche Bank, BNY Mellon et d’autres établissements bancaires. Si ces systèmes se développent, ce n’est sans doute qu’une question de temps avant de voir de telles blockchains de paiement être réinjectées dans l’économie et venir concurrencer les mécanismes de transfert interbancaires tels que Swift. 
+
+	\subsection{Les risques (penser à modifier)}
+	    \subsection{1-1-Les blanchissements d'argent}
+	    \subsection{1-2-L'anonymat}
+	    \subsection{1-3-Les hackers}
+25 Février 2014 : La plateforme d’échange de bitcoins, basée à Tokyo, MtGox, s’effondre brutalement suite à une cyberattaque. Les pirates ont détourné 744 408 bitcoins.
+
+\newpage		
+\section{Conclusion}
+Depuis, de nombreuses institutions bancaires s’y intéressent et réalisent des transactions mais le débat reste entier : doit-on réguler ces monnaies virtuelles ? Comment contrôler la fluctuation de celles-ci ? Retour sur l’histoire des crypto-monnaies en 17 dates clés.
+
+\newpage
+\section{Webographie}
+
+\newpage
+\section{Annexes}
+
+\end{document}
