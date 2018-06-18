@@ -31,7 +31,20 @@
 \cfoot{\thepage}
 \renewcommand{\footrulewidth}{0.4pt}%trait horizontal pour le pied de page
 
+%*********************page de  fond **************************
+\usepackage{eso-pic}
+\newcommand\BackgroundPic{%
+\put(0,0){%
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\centering
+\includegraphics[width= 3\paperwidth,height=\paperheight,%
+keepaspectratio]{couverture_blockchain_2}%
+\vfill
+}}}
+
 \begin{document}
+\AddToShipoutPicture*{\BackgroundPic}
 
 %%%%%%%%%%%%%%%%%%
 %%% First page %%%
@@ -40,19 +53,19 @@
 \begin{titlepage}
 \begin{center}
 
-\includegraphics[width=0.6\textwidth]{fac}\\[1cm]
+%\includegraphics[width=0.6\textwidth]{fac}\\[1cm]
 
-{\large Méthodes Informatiques Appliquées à la Gestion de l'Entreprise}\\[0.8cm]
+{\large \textcolor{white}{\textbf{Méthodes Informatiques Appliquées à la Gestion des Entreprises}}}\\[0.8cm]
 
 
-{\large \textbf{Mémoire Master 2 Classique}}\\[0.5cm]
+{\large \textbf{\textcolor{white}{Mémoire Master 2 Classique}}}\\[0.5cm]
 
 \vfill
 
 % Title
-\rule{\linewidth}{0.5mm} \\[0.4cm]
-{ \huge \bfseries Comment intégrer les blockchains dans les transactions bancaires ?  \\[0.4cm] }
-\rule{\linewidth}{0.5mm} \\[1.5cm]
+\textcolor{white}{\rule{\linewidth}{0.5mm} }\\[0.4cm]
+{ \huge \bfseries \textcolor{white}{Comment intégrer les blockchains dans les transactions bancaires ?}  \\[0.4cm] }
+\textcolor{white}{\rule{\linewidth}{0.5mm}} \\[1.5cm]
 
 \vfill
 
@@ -60,21 +73,21 @@
 \noindent
 \begin{minipage}{0.5\textwidth}
   \begin{flushleft} \large
-    \emph{Auteur :}\\
-   Sokhna Maimouna \textsc{SOW}\\
+    \emph{\textcolor{white}{Auteur :}}\\
+   \textcolor{white}{Sokhna Maimouna \textsc {SOW}}\\
   \end{flushleft}
 \end{minipage}%
 \begin{minipage}{0.5\textwidth}
   \begin{flushright} \large
-    \emph{Encadrant :} \\
-   Mme Marie-Pierre \textsc{Gervais}\\
+    \emph{\textcolor{white}{Encadrant :}} \\
+   \textcolor{white}{Mme Marie-Pierre \textsc{Gervais}}\\
   \end{flushright}
 \end{minipage}
 
 \vfill
 
 % Bottom of the page
-{\large Année scolaire \\ 2017 - 2018}
+{\large \textcolor{white}{Année scolaire \\ 2017 - 2018}}
 
 \end{center}
 \end{titlepage}
@@ -160,6 +173,9 @@ B2B & Business to Business, entreprise qui vise une clientèle d'entreprises\\
 
 \hline
 B2C & Business to Consumer, entreprise qui vise une clientèle de consommateurs\\
+
+\hline
+UE & Union Européenne \\
 
 \hline 
 \end{tabular} 
@@ -284,11 +300,14 @@ Ces principaux acteurs communiquent indirectement mais de façon coordonnée et 
     \subsection{Les transactions par carte bancaire physique}
 \hspace{1cm} La carte bancaire est le moyen de paiement le plus utilisé en France. Elle représente presque \textbf{50\%} des paiements en 2014 avec \textbf{9,49 milliards} de paiements effectués par cartes. Cette carte est d'une utilisation simple que ce soit pour un paiement ou pour un retrait et est acceptée presque par tous les commerçants. \\ A CONTINUER.....
 
-\hspace{1cm} Cependant la carte nous impose un coût annuel assez élevé en fonction des banques ainsi que des frais sur certains retraits et paiements avec des assurances sur les achats effectués. De même il exige très souvent un montant minimum d'utilisation chez les commerçants. Ils ont mis en place des plafonnements de dépenses par mois ou par semaine en fonction des banques, ce qui est très embarrassant à cause du manque de flexibilité. Avec cette carte vous n'avez pas non plus la possibilité de faire des paiements entre particuliers.
+\hspace{1cm} Cependant la carte nous impose un coût annuel assez élevé en fonction des banques ainsi que des frais sur certains retraits et paiements avec des assurances sur les achats effectués. De même il exige très souvent un montant minimum d'utilisation chez les commerçants. Ils ont mis en place des plafonnements de dépenses par mois ou par semaine en fonction des banques, ce qui est très embarrassant à cause du manque de flexibilité. Avec cette carte vous n'avez pas non plus la possibilité de faire des paiements entre particuliers. Et utiliser sa carte à l'étranger équivaut à payer des frais exorbitants.
 
 %%%%%%%%%%%%%% E-commerce %%%%%%%%%%%%%%
     \subsection{Le monde du E-commerce}
-\hspace{1cm} Le e-commerce est l'ensemble des transactions commerciales s'opérant à distance via des interfaces électroniques et digitales. Aujourd'hui les achats et ventes se passent le plus souvent par le biais du numérique au détriment des marchés physiques traditionnels. L'e-commerce prend de plus en plus d'ampleur. en effet, une étude de la Fevad montre un chiffre d'affaire qui s'élève à \textbf{72 milliards d'euro} en 2016 pour un total de plus de \textbf{200 000 sites marchands}. Nous avons environ \textbf{2000 euro par année} dépensé par un e-acheteur pour \textbf{28 transactions}. En 2016 l'e-commerce représentait \textbf{8\%} du commerce de détail. Par contre ces e-commerçants investissent beaucoup sur des plate-formes qui jouent le rôle d'intermédiaire entre eux et les acheteurs. Ce qui les pousse parfois à augmenter le prix de leurs marchandises pour en tirer bénéfice.\\
+\hspace{1cm} Le e-commerce est l'ensemble des transactions commerciales s'opérant à distance via des interfaces électroniques et digitales. Aujourd'hui c'est un secteur en pleine expansion. Les achats et ventes se passent le plus souvent par le biais du numérique au détriment des marchés physiques traditionnels. L'e-commerce prend de plus en plus d'ampleur. en effet, une étude de la Fevad montre un chiffre d'affaire qui s'élève à \textbf{72 milliards d'euro} en 2016 pour un total de plus de \textbf{200 000 sites marchands}. Nous avons environ \textbf{2000 euro par année} dépensé par un e-acheteur pour \textbf{28 transactions}. En 2016 l'e-commerce représentait \textbf{8\%} du commerce de détail.\\
+
+\hspace{1cm} Par contre ces e-commerçants investissent beaucoup sur des plate-formes qui jouent le rôle d'intermédiaire entre eux et les acheteurs. Ce qui les pousse parfois à augmenter le prix de leurs marchandises pour en tirer bénéfice.\\ De même pour un paiement en ligne certains sites vous demanderont vos données personnelles, quelque chose dont vous ne connaissez où ça peut vous amener. Le manque de confiance dans les moyens de paiements sur les sites d'e-commerce et la peur de se faire arnaquer pose un vrai problème au grand public et porte préjudice aux e-commerçants. 
+
 
 %%%%%%%%%%%%%% Transaction papier %%%%%%%%%%%%%%
     \subsection{Les transactions sur papier}
@@ -306,90 +325,139 @@ Ces principaux acteurs communiquent indirectement mais de façon coordonnée et 
 
 \end{itemize}
     
-\hspace{1cm} Ces moyens de transaction bancaires sont quotidiennement utilisés en France, particulièrement les chèques, grâce à leur gratuité d'acquisition. Avec une transaction par "papier", vous avez la possibilité de garder une trace du paiement.  De plus les paiements sont gratuits ainsi que leurs acquisitions. Cependant certains commerçants n'acceptent pas les chèques à partir de certains montant, par mesure de sécurité et à cause  des nombreux chèque impayés. Effectivement vous n'avez aucune garantie que les chèques encaissés ne sont pas sans provisions. En plus de tout ça il y a beaucoup de fraudes sur les fraudes aujourd'hui \\
+\hspace{1cm} Ces moyens de transaction bancaires sont quotidiennement utilisés en France, particulièrement les chèques, grâce à leur gratuité d'acquisition. Avec une transaction par "papier", vous avez la possibilité de garder une trace du paiement.  De plus les paiements sont gratuits ainsi que leurs acquisitions.\\
 
-\hspace{1cm} Et si nous nous tournions vers les blockchains pour voir les propositions que peut nous faire cette technologie à propos des transactions par papier? En fait l'idée serait de mettre des codes QR unique et spécifique à chaque chèque. Ce code sera enregistrer en amont sur la blockchain, ce qui permettra de vérifier et l'authenticité du chèque et de le valider. \\
+\hspace{1cm} Mais il se trouve que certains commerçants n'acceptent pas les chèques à partir de certains montant, par mesure de sécurité et à cause  des nombreux chèque impayés. Effectivement vous n'avez aucune garantie que les chèques encaissés ne sont pas sans provisions. En plus de tout ça il y a beaucoup de fraudes sur les chèques aujourd'hui \\
 
-\hspace{1cm} Nous pouvons mettre ici aussi en avant les smart contracts qui sont très puissants. Ils ne s'appliquent pas seulement dans le e-commerce. La même logique avec le même procédé décrit dans les e-commerces peut également s'appliquer sur les transactions par billet à ordre, sur les lettres de change ainsi que sur les traites.\\
-
-
-\textbf{PROBLEMMMMEEEEEEEEEEEEEEEEEEEEEEEEEE}
 
 %%%%%%%%%%%%%% transfert d'argent %%%%%%%%%%%%%%
     \subsection{Les transferts d'argent}
     
-\textbf{Mandat cash}, \textbf{Prélèvement}, \textbf{Virement}, \textbf{Western union}
+Il existe plusieurs types de transferts  d'argent. Parmi eux nous pouvons en citer: 
 
-\hspace{1cm} 
+\begin{enumerate}
+    \item Virement bancaire: Ça consiste à envoyer ou recevoir de l'argent par le biais d'un compte bancaire. Vous avez la possibilité de faire des virements: 
+    
+    \begin{enumerate}
+        \item ouverts dans la même banque, ce qu'on appelle \textbf{virement interne}
+        \item ouverts dans deux banques différentes, appelé \textbf{virement externe}
+        \item réalisés dans le même pays, appelé \textbf{virement domestique}
+        \item réalisés entre deux pays de l'UE. Ce virement doit êre inférieur à \textbf{50 000 euros}
+        \item réalisés hors UE, à l'étranger
+        \item réalisés ponctuellement ou permanents 
+    \end{enumerate}
+Les virements bancaires sont des moyens de paiement à distance particulièrement utiles surtout s'il s'agit de grosses sommes ou de paiement de dépenses contraintes. Vous avez une traçabilité bien détaillée.\\
 
-celui du transfert d’argent à l’international semble par exemple très prometteur. Sur les 440 milliards de dollars par an que représente ce marché (données Banque Mondiale, 2015), près de 10 PerCent de commissions sont prélevés par les plateformes d’échange dans certaines régions du globe. La diaspora africaine perd ainsi 2 milliards d’euros par an juste à cause du coût d’envoi des transferts d’argent, et l’Afrique subsaharienne subit même les frais de transferts les plus élevés au monde -12 PerCent, soit quasiment le double de la moyenne mondiale – alors qu’il s’agit d’une des régions les plus pauvres du monde. La blockchain pourrait alors constituer une solution infiniment moins coûteuse (seuls quelques centimes sont prélevés sur chaque transaction) et plus rapide (entre 10 mn à 1h, contre parfois plusieurs jours pour les transferts à l’étranger)
+\hspace{1cm} Ce moyen de paiement est sûr mais n'est pas souvent gratuit. En effet chaque banque applique son propre tarif. Et si c'est un virement dans une autre monnaie, devise, il y a un taux d'échange qui est appliqué. Ce coût dépend aussi des devises et peut vous coûter très cher. Un autre problème est lié au délai de transaction. Pour un virement dans l'UE, un virement peut durer maximum 4jours, mais en dehors de l'UE il n'existe pas de délai maximum ce qui fait qu'un virement peut durer assez longtemps. Et même pour certaines banques,  le virement à l'intérieur de la France peut s'avérer long, et nécessite parfois une autorisation préalable de la banque et l'enregistrement du compte ce qui peut prendre plusieurs jours. De même les virements permanents sont débités automatiquement, ce qui oblige à avoir la somme due, sinon des frais peuvent s'appliquer.
 
-REQ, permet à l’utilisateur d’effectuer des transactions de manière transparente, sécurisée et à moindre coût, via la blockchain. Leur livre blanc estime actuellement les frais de 0,05 à 0,5pcent par transaction, les frais diminuent à mesure que le volume du réseau augmente puisqu’une partie des frais perçus sont brûlés et partiellement utilisés pour financer le réseau.\\
+    \item Transfert d'espèce: Nous pouvons en citer quelques uns : 
+    
+    \begin{enumerate}
+        \item Mandat cash
+        \item Western Union
+        \item MoneyGram 
+    \end{enumerate}
+    
+Les transferts d'argent par mandat ou western sont particulièrement destinés aux personnes ne détenant pas de compte bancaire. Ces transactions peuvent vous permettre d'envoyer de l'argent à une personne n'ayant pas de carte d'identité, mais avec maximum 400 euros.\\
+
+\hspace{1cm} Ces transferts sont rapides et efficaces, mais est très coûteux surtout à l'international.D'après les données de la Banque Mondiale en 2015,  presque \textbf{10\%} de commissions sont prélevés par les plateformes d’échange dans certaines régions. la diaspora africaine dépense ainsi \textbf{2 milliards d'euros} par an à cause des coûts d'envoi des transferts d'argent.  Ces frais de transfert dont les coûts s'élèvent à \textbf{12\%}, soit le double de la moyenne mondiale. Il y a aussi les coûts changent souvent à cause des fluctuations de devise\\
+
+\hspace{1cm} En plus de ces frais, viennent se rajouter les restrictions. En effet certains opérateurs de transfert peuvent interdire des transactions commerciales, c'est à dire une transaction liant un fournisseur à un commerçant. Ils vous obligent ainsi à faire des transactions uniquement liées aux remboursements, aux dons et aux familles.\\
+    
+\end{enumerate}
 
 %%%%%%%%%%%%%% Pret bancaire %%%%%%%%%%%%%%
     \subsection{Prêts bancaires}
-\hspace{1cm}
-
-%%%%%%%%%%%%%% Pré-autorisation %%%%%%%%%%%%%%
-    \subsection{Pré-autorisation}
-\hspace{1cm}
-
-%%%%%%%%%%%%%% Vente à distance %%%%%%%%%%%%%%
-    \subsection{Vente à distance}
-\hspace{1cm}
     
-    
-Au niveau de l'international, le processus de la transaction change. Les cartes de paiement acceptées sont de type EMV (Europay Mastercard Visa) ou AmericanExpress.
+\hspace{1cm} Faire un prêt consiste à remettre des fonds à un bénéficiaire, moyennant le plus souvent à un intérêt à verser au prêteur. Donc il y a un engagement de remboursement à respecter. Ces prêts sont profitables pour un financement à un projet et utiles pour tous ceux qui ont un besoin urgent. Mais 
+le problèmes avec ces prêts c'est qu'ils vous proposent un taux d'intérêts élevés, augmentant ainsi le taux d'endettement. Ces prêts sont d'utilité mais à quel prix? Est ce qu'avec ce système ça vaut le coût ?
 
-Ces cartes utilisent les réseaux bancaires internationaux pour effectuer les traitements monétaires. Par exemple, si un porteur achète un produit aux Etats Unis, le traitement s'effectuera en empruntant le réseau Automated Clearing House avant de rejoindre la plate forme nationale Français qui est le Groupement des Systèmes Interbancaires de Télécompensation.
-
-A chaque achat effectué en dehors de l'euros, une opération de change est effectuée. Cette opération est facturée et un pourcentage est versé de la transaction est reversé à la banque pour rembourser le coût de traitement.
-
-Pour les transactions effectuées au sein de l'U.E., le projet SEPA va bientôt permettre d'améliorer l'organisation des systèmes de paiement européen.
 %%%%%%%%%%%%%% Conclusion de ce chapitre %%%%%%%%%%%%%%
----------------------Conclusion de 5 --------------
-\hspace{1cm} De ce fait depuis toujours nous vivons avec cette monétique qui nous permet d'effectuer des transactions bancaires, des transferts de fonds... Cependant ce système commence à semer les doutes dans l'esprit des utilisateurs. Il coûte de plus en cher et présente des failles de sécurité surtout avec la présence des cyberattacks sur le marché. Pour résoudre et faire face à ces problèmes, nous pouvons chercher d'autres méthodes pour assurer ces transactions. Et aucune autre technologie ne me vient en tête à part les blockchains. C'est vrai que c'est une nouvelle technologie, mais a déjà montré ses prouesses et semble avoir un avenir assuré. Je vais donc essayer de voir comment mettre en place les blockchains dans le monde monétaire et voir le rôle qu'elle peut jouer dans les différentes transactions.
+\hspace{1cm} Toutes ces transactions transactions sont indispensables à notre quotidien. Mais il se trouve que nous avons des .....A COMPLETER......\\
+
+\includegraphics[width=1\textwidth]{tableau_recap}
+\begin{center}
+   \textbf{\underline{Récapitulatif du système actuel}} \\[1cm]
+\end{center}
+
 
 %%%%%%%%%%%%%% Blockchain %%%%%%%%%%%%%%
 \newpage
 \section{Blockchain dans les transactions}
 
+\hspace{1cm} Nous vivons donc avec cette monétique qui nous permet d'effectuer des transactions bancaires, des transferts de fonds... Cependant ce système commence à semer les doutes dans l'esprit des utilisateurs. Il coûte de plus en cher et présente des failles de sécurité surtout avec la présence des cyberattacks sur le marché. Pour résoudre et faire face à ces problèmes, nous pouvons chercher d'autres méthodes pour assurer ces transactions. Et aucune autre technologie ne me vient en tête à part les blockchains. C'est vrai que c'est une nouvelle technologie, mais a déjà montré ses prouesses et semble avoir un avenir assuré. Je vais donc essayer de voir comment mettre en place les blockchains dans le monde monétaire et voir le rôle qu'elle peut jouer dans les différentes transactions.
+
 %%%%%%%%%%%%%% Carte bancaire %%%%%%%%%%%%%%
-\textbf{CARTE BANCAIRE}
-\hspace{1cm} Le système de la blockchain pourrait faire disparaître ces contraintes et nous offrir ainsi une meilleure gestion de nos transactions. Et quoi de plus beau que de pouvoir dépenser ses \textit{coins} dans la boulangerie en bas de chez soi? Pourtant c'est bien possible en mettant en place des cartes bancaires en crypto-monnaie. Cette carte est relié à votre portefeuille, qui stocke "votre richesse". Et afin d'effectuer des transactions de manière décentralisée, le portefeuille doit en sorte être "multi-cryptos. C'est à dire donner accès à plusieurs devises virtuelles dans différentes chaînes de blocs , afin de ne pas imposer aux utilisateurs une unique monnaie. \\
 
-\hspace{1cm} Et comment faire pour retirer en espèce? Obtient-on des euros ou des cryptomonnaies une fois devant le distributeur de banque ? Cela ne pose pas de problème majeur. La carte cryptomonnaie est avant tout une carte prépayée. Ce qui veut dire qu'elle peut être créditée qu'avec les devises actuelles comme EUR, USD ou GBP. Donc même si vous détenez des bitcoins cette monnaie sera covertit à la devise de votre choix au moment des retraits.\\
+    \subsection{Les cartes bancaires}
 
-\hspace{1cm} Cette carte permettra aussi de dépenser ses cryptomonnaies chez les commerçants qui, à priori, n'a pas à y voir un quelconque inconvénient. En effet pour lui c'est comme une carte bancaire normale puisqu'il recevra son argent en euro. Tout simplement parce que la conversion crypto en euro est instantanée. Comment ça marche? Lorsque vous effectuez un paiement chez le commerçant, une vente instantanée du même montant en crypto est donc initiée. La carte est ensuite chargée du montant en euro, sans laisser de trace et sans que le commerçant même sans aperçoive.\\
+\hspace{1cm} Le système de la blockchain pourrait faire disparaître les contraintes liées aux cartes bancaires et nous offrir ainsi une meilleure gestion de nos transactions. Et quoi de plus beau que de pouvoir dépenser ses \textit{coins} dans la boulangerie en bas de chez soi? Pourtant c'est bien possible en mettant en place des cartes bancaires en crypto-monnaie. Cette carte est reliée à votre portefeuille, qui stocke "votre richesse". Et afin d'effectuer des transactions de manière décentralisée, le portefeuille doit en sorte être "multi-cryptos. C'est à dire donner accès à plusieurs devises virtuelles dans différentes chaînes de blocs , afin de ne pas imposer aux utilisateurs une unique monnaie. \\
+
+\hspace{1cm} Et comment faire pour retirer en espèce? Obtient-on des euros ou des cryptomonnaies une fois devant le distributeur de banque ? Cela ne pose pas de problème majeur. La carte cryptomonnaie est avant tout une carte prépayée. Ce qui veut dire qu'elle peut être créditée qu'avec les devises actuelles comme EUR, USD ou GBP. Donc même si vous détenez des bitcoins cette monnaie sera convertit à la devise de votre choix au moment des retraits.\\
+
+\hspace{1cm} Cette carte permettra aussi de dépenser ses cryptomonnaies chez le commerçant qui, à priori, n'a pas à y voir un quelconque inconvénient. En effet pour lui c'est comme une carte bancaire normale puisqu'il recevra son argent en euro. Tout simplement parce que la conversion crypto en euro est instantanée. Comment ça marche? Lorsque vous effectuez un paiement chez le commerçant, une vente instantanée du même montant en crypto est donc initiée. La carte est ensuite chargée du montant en euro, sans laisser de trace et sans que le commerçant même sans aperçoive.\\
 
 \hspace{1cm} La carte sera transparente aussi pour tout ce qui est frais bancaire, donc pratiquement pas de frais du tout, même si une transaction en bitcoin coûte de plus en plus chère. Il faut afficher le continuellement les cours auxquelles les cryptomonnaies seront vendus en se basant sur sur plusieurs échanges afin de proposer le meilleur taux. Mais à vrai dire, un paiement sans frais n'existe pas, donc qui doit payer les frais? Sur ce point il n y aura pas de changement car ce sera le marchand qui paie comme dans les transactions bancaires actuelles.\\
 
-\hspace{1cm} Cependant Le processus de mise en place des outils nécessaires pour le marchand du quartier afin d'accepter les cryptomonnaies est assez simple mais un peu complexe . Un autre point bloquant, qu'il ne faut surtout pas oublier, est la sensibilisation des commerçants à accepter une monnaie dont le cours varie subitement d'une minute à l'autre.
+\hspace{1cm} Cependant tout le monde n'est pas d'accord sur cette intégration. Prenons le cas de \textbf{Frédéric Dalibard}, responsable du digital de la banque de grande clientèle de Natixis, qui pense que remplacer un Visa par une blockchain est quasi impossible parce que, par exemple un bitcoin ne peut enregistrer seulement qu'une dizaine de transactions par seconde contrairement au Visa qui peut en faire \textbf{20 000}. Ce qui n'est pas faux car les paiements avec les cryptomonnaies ne sont pas instantanées. Avec Bitcoin, vous pouvez avoir un délai de \textbf{10 minutes} avant que le réseau n'inclut votre transaction dans un bloc. Et cette transaction est opérationnelle au moment où elle est validée.\\
 
+\hspace{1cm} Nous avons aussi le processus de mise en place des outils nécessaires pour le marchand du quartier afin d'accepter les cryptomonnaies qui est assez simple mais un peu complexe . Un autre point bloquant, qu'il ne faut surtout pas oublier, est la sensibilisation des commerçants à accepter une monnaie dont le cours varie subitement d'une minute à l'autre.
 
-----------------------------------Brouillon----------------
-Recevoir un paiement avec Bitcoin est presque instantané. Toutefois, il y peut y avoir un délai de 10 minutes avant que le réseau ne commence à confirmer votre transaction en l’incluant dans un bloc et avant que vous ne puissiez dépenser les bitcoins que vous recevez.
-
-Une confirmation signifie qu’il existe un consensus dans le réseau pour considérer que les bitcoins que vous avez reçus n’ont été envoyés à personne d’autre et sont désormais votre propriété. Une fois que votre transaction est incluse dans un bloc, elle continuera d’être enfouie sous chaque bloc après celui-ci, ce qui consolidera exponentiellement ce consensus et diminuera le risque d’une transaction renversée. Chaque utilisateur est libre de déterminer à quel moment il considère une transaction confirmée, et 6 confirmations est souvent considéré comme étant aussi sécurisé et irréversible qu’une attente de 6 mois pour une transaction par carte de crédit.
-
-Evidemment on adaptera le délai de sécurité à l’importance de la transaction effectuée. Quelques minutes suffiront généralement pour un micro-paiement sans enjeu qui peut se contenter d’une 
-----------------------------------Fin-----------------------------
 
 %%%%%%%%%%%%%% E-commerce %%%%%%%%%%%%%%
+
+    \subsection{Le e-commerce}
 \textbf{E-commerce}
 
-\hspace{1cm} La blockchain serait un grand atout pour ces e-commerçants. En effet la mise en place de cette technologie dans ce secteur supprimerait tous les intermédiaires entre vendeurs et acheteurs. Les e-commerçants pourront proposer des transactions se passant d'intermédiaires, donc ne plus verser de commissions aux plate-formes, aux organismes bancaires. Prenons un exemple sur Shopify et Paypal, qui sont des sociétés de paiement en ligne très populaires de grandes plate-formes de commerce. Elles prennent une commission de 1,5\% à 6\%. Cette redevance est transmise au client, ce qui rend les achats en ligne beaucoup plus chers.\\
+\hspace{1cm} Cette blockchain serait un grand atout pour ces e-commerçants. En effet la mise en place de cette technologie dans ce secteur supprimerait tous les intermédiaires entre vendeurs et acheteurs. Les e-commerçants pourront proposer des transactions se passant d'intermédiaires, donc ne plus verser de commissions aux plate-formes, aux organismes bancaires. Prenons un exemple sur Shopify et Paypal, qui sont des sociétés de paiement en ligne très populaires de grandes plate-formes de commerce. Elles prennent une commission de 1,5\% à 6\%. Cette redevance est transmise au client, ce qui rend les achats en ligne beaucoup plus chers.\\
 
 \hspace{1cm} D'après \textbf{Thomas France}, co-fondateur de la Maison du Bitcoin à Paris, ce système pourrait faire économiser 3\% à 4\% des chiffres d'affaires des e-commerçants qui réalisent beaucoup d'opérations depuis de l'étranger. Effectivement, les transactions internationales sont souvent réalisées par l'intermédiaire des plate-formes tierces, les obligeant à débourser beaucoup de frais. Alors que les paiements en bitcoins ne génèrent aucun frais de transactions pour le vendeur. Ceci est un grand avantage pour les e-commerçants en quête de rentabilité absolue.\\
 
 \hspace{1cm} L'inexistence des frais de transaction est assurée grâce au protocole de la blockchain dont le code source a la caractéristique d'être un open source. De même avec son fonctionnement sur le réseau de pair à pair, il n'y a pas d'autorité centrale ou intermédiaire. Ce qui fait que tout le monde peut contrôler ou posséder les bitcoins. Donc, quand une transaction est réalisée entre deux parties la monnaie ne passe par aucun intermédiaire et est échangée, comme presque un échange liquide. Ce qui fait que rien ne justifie des frais de transactions. De même une fois le paiement effectué, il devient irréversible, donc l'e-commerçant est aussi protégé contre des frais d'annulation de paiement de la part de l'acheteur. Par contre pour tout mécontentement de l'acheteur le cyber-marchand  peut toujours le rembourser contre le retour du produit acheté.\\
 
-\hspace{1cm} \hspace{1cm} Nous avons aussi un élément clé qui peut vraiment révolutionner le e-commerce. On l'appelle les \textbf{ contrats intelligents} plus connus sous le nom de \textbf{smart contracts}, en anglais qui peuvent être une grande force pour le e-commerce. Ces contrats sont la véritable application derrière la technologie blockchain. Nous entrerons pas en détails sur là-dessus car il faudra tout un article entier pour vous en parler. Mais je peux vous dire que ces contrats sont en résumé des accords numériques entre des parties qui s'exécutent automatiquement quand les obligations ont été respectées et remplies. Si un acheteur valide son panier il envoie le prix fixé d'un produit en cryptomonnaie au contrat. Une fois le contrat reçu, le vendeur envoie la preuve de propriété  au smart contract et en même temps il va lier ce contrat au transporteur du produit vendu. Dès que toutes les obligations sont remplies, le contrat enverra automatiquement l'argent au porte-monnaie du vendeur qui pourra les récupérer et utiliser à tout moment. Ainsi ces contrats permettent de faire des transactions directes entre les acheteurs et les vendeurs sans frais et avec une simplicité remarquable.
-
-\textbf{METTRE IMAGE SI JAI LE TEMPS}
-
+\hspace{1cm} \hspace{1cm} Nous avons aussi un élément clé qui peut vraiment révolutionner le e-commerce. On l'appelle les \textbf{ contrats intelligents} plus connus sous le nom de \textbf{smart contracts}, en anglais qui peuvent être une grande force pour le e-commerce. Ces contrats sont la véritable application derrière la technologie blockchain. Nous entrerons pas en détails sur là-dessus car il faudra tout un article entier pour vous en parler. Mais je peux vous dire que ces contrats sont en résumé des accords numériques entre des parties qui s'exécutent automatiquement quand les obligations ont été respectées et remplies. Si un acheteur valide son panier il envoie le prix fixé d'un produit en cryptomonnaie au contrat. Une fois le contrat reçu, le vendeur envoie la preuve de propriété  au smart contract et en même temps il va lier ce contrat au transporteur du produit vendu. Dès que toutes les obligations sont remplies, le contrat enverra automatiquement l'argent au porte-monnaie du vendeur qui pourra les récupérer et utiliser à tout moment. Ainsi ces contrats permettent de faire des transactions directes entre les acheteurs et les vendeurs sans frais et avec une simplicité remarquable.\\
     
-\hspace{1cm}Par conséquence mettre en place le paiement par les crypto-monnaies n'est pas sans présenter certains risques pour les professionnels de la vente en ligne. En effet le système est très volatile. La monnaie est soumise à la loi de l'offre et de la demande, ce qui fait que le prix augmente quand la demande est forte et diminue lorsque la demande est faible. Donc son cours est très instable et évolue de manière imprévisible, en témoignent les fortes fluctuations de son prix ces derniers mois, à des périodes très rapprochées. Le montant perçu lors d'une vente peut varier entre le moment de l'achat et celui de la réception du paiement. \\
+\hspace{1cm}Par conséquent mettre en place le paiement par les crypto-monnaies n'est pas sans présenter certains risques pour les professionnels de la vente en ligne. En effet le système est très volatile. La monnaie est soumise à la loi de l'offre et de la demande, ce qui fait que le prix augmente quand la demande est forte et diminue lorsque la demande est faible. Donc son cours est très instable et évolue de manière imprévisible, en témoignent les fortes fluctuations de son prix ces derniers mois, à des périodes très rapprochées. Le montant perçu lors d'une vente peut varier entre le moment de l'achat et celui de la réception du paiement. Voir \textbf{annexe 1} \\
+
+%%%%%%%%%%%%%% Les transactions sur papier %%%%%%%%%%%%%%
+
+    \subsection{Les transactions par documents}
+\hspace{1cm} Et si nous nous tournions vers les blockchains pour voir les propositions que peut nous faire cette technologie à propos des transactions par papier? En fait l'idée serait de mettre des codes QR unique et spécifique à chaque chèque. Ce code sera enregistrer en amont sur la blockchain, ce qui permettra de vérifier et l'authenticité du chèque et de le valider. \\
+
+\hspace{1cm} Nous pouvons mettre ici aussi en avant les smart contracts qui sont très puissants. Ils ne s'appliquent pas seulement dans le e-commerce. La même logique avec le même procédé décrit dans les e-commerces peut également s'appliquer sur les transactions par billet à ordre, sur les lettres de change ainsi que sur les traites.\\
+
+\includegraphics[width=1\textwidth]{contract_smart}
+\begin{center}
+   \textbf{\underline{Processus d'un smart contract}} \\[1cm]
+\end{center}
+
+%%%%%%%%%%%%%% Transfert d'argent %%%%%%%%%%%%%%
+
+    \subsection{Virements}
+    
+\hspace{1cm} Ces virements qui prennent des jours pour arriver à destinations avec des coûts chers peuvent prendre fin. 
+
+REQ, permet à l’utilisateur d’effectuer des transactions de manière transparente, sécurisée et à moindre coût, via la blockchain. Leur livre blanc estime actuellement les frais de 0,05 à 0,5pcent par transaction, les frais diminuent à mesure que le volume du réseau augmente puisqu’une partie des frais perçus sont brûlés et partiellement utilisés pour financer le réseau.\\
+
+La blockchain pourrait alors constituer une solution infiniment moins coûteuse (seuls quelques centimes sont prélevés sur chaque transaction) et plus rapide (entre 10 mn à 1h, contre parfois plusieurs jours pour les transferts à l’étranger)
+
+%%%%%%%%%%%%%% Western Union et moneygram %%%%%%%%%%%%%%
+
+    \subsection{Western Union \& MoneyGram}
+
+%%%%%%%%%%%%%% Prêt bancaire %%%%%%%%%%%%%%
+
+    \subsection{Faire un prêt! }
+ETHLend est une application décentralisée sur la blockchain de l’Ethereum permettant d’effectuer des prêts entre particuliers de façon sécurisée et transparente.
+C’est un moyen efficace pour les emprunteurs d’accéder à des financements à l’échelle mondiale et pour les prêteurs de financer des demandes de prêts à travers le monde.
+
+ETHLEND DÉCENTRALISE LA FINANCE
+
+
+râce à la blockchain de l’Ethereum, ETHLend décentralise la finance pour créer un marché mondial du crédit. Ainsi, un emprunteur au Brésil n’est pas limité aux prêteurs locaux et aux banques brésiliennes, il peut en effet accéder à des financements venant d’Asie, d’Amérique du Nord ou d’ailleurs.
+
+Cela signifie pour les prêteurs davantage de possibilités d’investissement. ETHLend permet donc l’internationalisation du marché du crédit ainsi qu’un accès plus rapide à celui ci par rapport à l’utilisation du système bancaire. Les transactions sont effectuées en quelques secondes ou minutes comparés aux jours d’attente que l’on rencontre dans le système bancaire traditionnel.
+Par ailleurs, en offrant plus de liquidités au niveau local ETHLend favorise la compétition sur les taux d’intérêts et grâce à l’utilisation de cryptomonnaies, il n’est pas nécessaire d’avoir un compte en banque pour obtenir un prêt.
 
 %%%%%%%%%%%%%% Conclusion du chapitre %%%%%%%%%%%%%%
 \hspace{1cm} Les cryptomonnaies ont donc la capacité de fournir des solutions aussi bien pour le e-commerçant que pour l'acheteur en supprimant  le besoin d'un tiers. Ces monnaies peuvent également être meilleures que les services de portefeuille numérique de nos jours car la blockchain nous permet: 
@@ -407,31 +475,38 @@ Evidemment on adaptera le délai de sécurité à l’importance de la transacti
 
 \hspace{1cm} 
 
+--------------
+Un défaut majeur dans la façon dont nous stockons actuellement les données est qu’elles sont stockées dans un endroit central et contrôlées par une partie centrale. Oui, les cybercriminels peuvent pirater des individus, mais ils ne voleront que les informations de l’individu qu’ils piratent. Il est pratiquement impossible de pirater une blockchain entier.\\
+----------------
+
 \hspace{1cm} La blockchain est devenue un sujet incontournable cette année.Grâce au réseau et à la cryptographie, elle a un système sécurisé qui pousse les particuliers et les entreprises à l'utiliser sans besoin de faire appel à des intermédiaires. Les seuls frais possibles à payer sont la maintenance et la sécurisation du réseau. Pour un acheteur et un vendeur, techniquement il y a aucun frais à dépenser puisque les plates-formes du e-commerces seront des applications blockchain. Ainsi les utilisateurs détermineront le développement et le fonctionnement de la plate-forme car les blockchains sont décentralisées, pas de partie centrale ou de société qui décide ou définit les règles.\\
+
+\hspace{1cm} 
 
 -----------------------\\
 
 
-Un défaut majeur dans la façon dont nous stockons actuellement les données est qu’elles sont stockées dans un endroit central et contrôlées par une partie centrale. Les données sont le nouveau pétrole et les cybercriminels sont désireux de voler ces énormes bases de données. La cybersécurité nécessite d’importants investissements en capital et des réglementations strictes, ce qui décourage les flux de revenus. Puisque les blockchains sont décentralisées, les données sont également décentralisées. Oui, les cybercriminels peuvent pirater des individus, mais ils ne voleront que les informations de l’individu qu’ils piratent. Il est pratiquement impossible de pirater une blockchain entier.\\
 
 Le grand public est encore peu familiarisé avec cette monnaie alternative, dont le fonctionnement tranche résolument avec les devises monétaires habituelles. Sa démocratisation demeure encore hypothétique et il est difficile d’évaluer l’importance qu’elle pourrait prendre dans les années à venir.
-
-La technologie blockchain actuelle présente un problème de scalabilité, analyse Frédéric Dalibard, responsable du digital de la banque de grande clientèle de Natixis, filiale du groupe BPCE. Imaginer un équivalent de Visa sur la blockchain est pour l'instant impossible." Le Bitcoin, par exemple, ne peut enregistrer qu'une dizaine de transactions par seconde, contre 20 000 pour Visa
 
 Malgré le coût potentiel d'implémentation, la blockchain dispose tout de même d'avantages incontestables en termes de rapidité et de sécurité.
 
 Aujourd'hui, les systèmes de paiement fonctionnent plutôt bien, renchérit de son côté Grégory Chenue, du Crédit Agricole. Tout casser pour remplacer par des systèmes blockchain prendrait beaucoup de temps car on ne part pas de zéro, les infrastructures de réseau sont très complexes."
 
-Outre les barrières culturelles et d’expérience utilisateur déjà mentionnées plus haut, mais qui peuvent donc être levées en étant ingénieux, plusieurs limites techniques rendent cependant aujourd’hui la blockchain Bitcoin difficilement utilisable à grande échelle pour des paiements, rendant sa menace pour les banques a priori assez limitée à court terme. En particulier, seules 7 transactions par seconde maximum sont aujourd’hui possibles sur toute la blockchain Bitcoin, loin des milliers du réseau Visa. Ce chiffre est modifiable, mais avec l’accord de la communauté Bitcoin, au sein de laquelle les débats sur ces sujets sont vifs. Du fait de la gouvernance complexe du bitcoin, il faudra sans doute un peu de temps avant que ces restrictions ne soient assouplies – ou, plus probablement, avant que des méthodes de contournement apparaissent (pensons par exemple aux sidechains et au Lightning Network).
 
  Le caractère décentralisé de cette nouvelle technologie, couplé avec sa sécurité et sa transparence, fait des prouesses aujourd’hui.
  
- Depuis, de nombreuses institutions bancaires s’y intéressent et réalisent des transactions mais le débat reste entier : doit-on réguler ces monnaies virtuelles ? Comment contrôler la fluctuation de celles-ci ? Retour sur l’histoire des crypto-monnaies en 17 dates clés.\\
+ Depuis, de nombreuses institutions bancaires s’y intéressent et réalisent des transactions mais le débat reste entier : doit-on réguler ces monnaies virtuelles ? Comment contrôler la fluctuation de celles-ci ? \\
 
 \newpage
 \section{Webographie}
 
 \newpage
 \section{Annexes}
+
+\textbf{Annexe 1}\\
+\begin{center}
+    \includegraphics[width=1.3\textwidth]{courbeBTC}
+\end{center}
 
 \end{document}
