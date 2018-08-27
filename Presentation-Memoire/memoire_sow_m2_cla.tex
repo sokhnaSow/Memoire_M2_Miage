@@ -401,8 +401,6 @@ Ces principaux acteurs communiquent indirectement mais de façon coordonnée et 
     \item \textbf{Chèque}: C'est un écrit par lequel une personne donne l'ordre de payer une certaine somme, prélevable immédiatement sur les fonds portés au crédit de sont compte, à lui même ou à un tiers.
     
     \item \textbf{Lettre de change }: C'est un écrit par lequel un créancier d'origine donne à un débiteur l'ordre de payer avant l'échéance fixée, une certaine somme à une troisième personne appelée qui est le bénéficiaire.
-    
-    \item \textbf{Traite} : C'est un titre qu'on peut négocier et qui présente, au profit du porteur, une créance d'une certaine somme et sert à son paiement. Il doit suivre un formalisme très rigoureux pour sa validité et son efficacité. Contrairement au chèque, il n'est pas encaissable immédiatement et ils sont beaucoup plus utilisés que les billets à ordre.
 
 \end{itemize}
     
@@ -432,7 +430,7 @@ Il existe plusieurs types de transferts  d'argent. Parmi eux nous pouvons en cit
         \item réalisés hors UE, à l'étranger
         \item réalisés ponctuellement ou permanents 
     \end{enumerate}
-Les virements bancaires sont des moyens de paiement à distance particulièrement utiles surtout s'il s'agit de grosses sommes ou de paiement de dépenses contraintes. Vous avez une traçabilité bien détaillée.\\
+Les virements bancaires sont des moyens de paiement à distance particulièrement utiles surtout s'il s'agit de grosses sommes ou de paiement de dépenses contraintes. \\
 
     \item Transfert d'argent à l'internationale: Nous pouvons en citer quelques uns : 
     
@@ -488,7 +486,7 @@ public class Block {
   //Pour l'horodatage, defini millisecondes.
   private long timeStamp;
 
-  //Constructeur du block
+  //Constructeur du bloc
   public Block(String data,String previousHash ) {
     this.data = data;
     this.previousHash = previousHash;
@@ -498,7 +496,7 @@ public class Block {
 
 \end{lstlisting}
 
-Notre block de base , appelé souvent \textbf{genesis-block},est toujours codé en dur. Ainsi le block de base  contient un \textbf{String hash} qui va stocker notre signature numérique. La variable \textbf{previousHash}, quant à elle, contient le hachage du block précédent et enfin \textbf{String data} regroupe toutes nos données du block.\\
+Notre bloc de base , appelé souvent \textbf{genesis-block},est toujours codé en dur. Ainsi le bloc de base  contient un \textbf{String hash} qui va stocker notre signature numérique. La variable \textbf{previousHash}, quant à elle, contient le hachage du bloc précédent et enfin \textbf{String data} regroupe toutes nos données du bloc.\\
 
 Générons maintenant notre signature numérique. Il existe plusieurs façons de le faire, comme vu précédemment, mais je vais choisir, parmi ces nombreux algorithmes cryptographiques, \textbf{SHA256} qui convient parfaitement pour notre cas.
 
@@ -533,7 +531,7 @@ public class StringUtil {
 }
 \end{lstlisting}
 
-Ici, on prend une chaîne et lui applique l'algorithme SHA256 qui renvoie la signature générée sous forme de chaîne. Nous allons maintenant utiliser notre algoSha256 , dans une nouvelle méthode de la classe Block afin de calculer le hachage. Par contre nous devons calculer le hachage de toutes les parties du block que nous ne voulons pas altérer. Et pour cela nous inclurons le \textbf{previousHash}, le \textbf{data} et le \textbf{timeStamp}.
+Ici, on prend une chaîne et lui applique l'algorithme SHA256 qui renvoie la signature générée sous forme de chaîne. Nous allons maintenant utiliser notre algoSha256 , dans une nouvelle méthode de la classe Block afin de calculer le hachage. Par contre nous devons calculer le hachage de toutes les parties du bloc que nous ne voulons pas altérer. Et pour cela nous inclurons le \textbf{previousHash}, le \textbf{data} et le \textbf{timeStamp}.
 
 \begin{lstlisting}
 
@@ -559,7 +557,7 @@ public Block(String data,String previousHash ) {
   }
 \end{lstlisting}
 
-N'oublions pas qu'on avait dit qu'il existe un block de base qui n'a pas de précédent. Nous devons alors, si on suit la même logique, initialiser ce block à \textbf{0} dans notre classe principale \textbf{MyFirstBlockchain} qui permet de créer tous nos blocks.
+N'oublions pas qu'on avait dit qu'il existe un bloc de base qui n'a pas de précédent. Nous devons alors, si on suit la même logique, initialiser ce bloc à \textbf{0} dans notre classe principale \textbf{MyFirstBlockchain} qui permet de créer tous nos blocs.
 
 \begin{lstlisting}
 
@@ -584,10 +582,10 @@ public class MyFirstBlockchain {
 
 \includegraphics[width=1\textwidth]{result_b1.png}
 \begin{center}
-   \textbf{\underline{Premiers blocks créés}} \\[1cm]
+   \textbf{\underline{Premiers blocs créés}} \\[1cm]
 \end{center}
 
-Je viens de tester nos premiers blocks. Et bien vrai que chaque block a sa propre signature numérique basée sur ses informations et sur la signature du block précédent, nous n'avons pas encore une vraie chaîne de blocks. Et pour cela je vais stocker ces blocks dans une liste de blocks.
+Je viens de tester nos premiers blocs. Et bien vrai que chaque bloc a sa propre signature numérique basée sur ses informations et sur la signature du bloc précédent, nous n'avons pas encore une vraie chaîne de blocs. Et pour cela je vais stocker ces blocs dans une liste de blocs.
 
 \begin{lstlisting}
 
@@ -618,7 +616,7 @@ public class MyFirstBlockchain {
 }
 \end{lstlisting}
 
-Nous venons de créer notre première blockchain. Maintenant passons à l'étape suivante.Il faut s'assurer de la sécurité de cette chaîne. Nous allons  vérifier l'intégrité de la blockchain. Nous allons créer une méthode booléenne dans notre classe principale afin de parcourir tous les blocs de la chaîne et comparer les hachages. Cette méthode nous permettra de vérifier si la variable de hachage est vraiment égale au hachage calculé et en même temps si le hachage du block précédent est égal à la variable previousHash qu'on avait calculer précédemment.
+Nous venons de créer notre première blockchain. Maintenant passons à l'étape suivante.Il faut s'assurer de la sécurité de cette chaîne. Nous allons  vérifier l'intégrité de la blockchain. Nous allons créer une méthode booléenne dans notre classe principale afin de parcourir tous les blocs de la chaîne et comparer les hachages. Cette méthode nous permettra de vérifier si la variable de hachage est vraiment égale au hachage calculé et en même temps si le hachage du bloc précédent est égal à la variable previousHash qu'on avait calculer précédemment.
 
 \begin{lstlisting}
 
@@ -647,13 +645,13 @@ public static Boolean isValidChain() {
 
 \end{lstlisting}
 
-Quiconque tente de modifier les blocks de la blockchain recevra un retour de cette méthode.\\
+Quiconque tente de modifier les blocs de la blockchain recevra un retour de cette méthode.\\
 
 \hspace{1cm}Parlons un peu des Wallets. Un Wallet est une sorte de portefeuille, un logiciel dans lequel on stocke les monnaies cryptographique. mais en réalité la monnaie n'est pas vraiment stockée quelque part. Il existe une clé privée, ce qu'on appelle souvent \textbf{numéro secret} pour chaque adresse de monnaie enregistrée dans le Wallet de la personne qui détient le solde. Ainsi les Wallet facilitent l'envoi et la réception des monnaies et donnent à l'utilisateur la propriété du solde.Nous avons quatre principaux types de Wallet: \textbf{\textit{bureau}}, \textbf{\textit{mobile}}, \textbf{\textit{web}} et \textbf{\textit{matériel}}\\
 
-\hspace{1cm} Essayons d'appliquer notre blockchain sur le Bitcoin en définissant le \textbf{Wallet Bitcoin}. En effet les nœuds du réseau, sur le bitcoin, partagent leurs chaînes de blocks et la plus longue chaîne valide est acceptée par le réseau. Mais qu'est ce qui peut empêcher à quelqu'un de changer des données dans un ancien block, puis de créer une nouvelle blockchain plus longue et de la présenter au réseau? Le \textbf{Proof of Work}. En effet le système de Proof of Work signifie qu'il faut beaucoup de temps et de puissance de calcul pour créer de nouveaux blocks. Par conséquent, l'attaquant aurait besoin de plus de puissance de calcul que le reste des pairs combinés.\\
+\hspace{1cm} Essayons d'appliquer notre blockchain sur le Bitcoin en définissant le \textbf{Wallet Bitcoin}. En effet les nœuds du réseau, sur le bitcoin, partagent leurs chaînes de blocs et la plus longue chaîne valide est acceptée par le réseau. Mais qu'est ce qui peut empêcher à quelqu'un de changer des données dans un ancien bloc, puis de créer une nouvelle blockchain plus longue et de la présenter au réseau? Le \textbf{Proof of Work}. En effet le système de Proof of Work signifie qu'il faut beaucoup de temps et de puissance de calcul pour créer de nouveaux blocs. Par conséquent, l'attaquant aurait besoin de plus de puissance de calcul que le reste des pairs combinés.\\
 
-\hspace{1cm} Pour mettre en place ce système nous avons besoin des \textbf{mineurs} pour le faire en essayant différentes valeurs de variables dans le block jusqu'à ce que leur hash commence par un certain nombre de 0. Nous allons reprendre notre classe \textbf{Block} et essayer de miner dessus.
+\hspace{1cm} Pour mettre en place ce système nous avons besoin des \textbf{mineurs} pour le faire en essayant différentes valeurs de variables dans le bloc jusqu'à ce que leur hash commence par un certain nombre de 0. Nous allons reprendre notre classe \textbf{Block} et essayer de miner dessus.
 
 \begin{lstlisting}
 
@@ -667,7 +665,7 @@ public class Block {
   private String data;  
   private int nonce;
 	
-  //Constructeur du block
+  //Constructeur du bloc
   public Block(String data,String previousHash ) {
     this.data = data;
     this.previousHash = previousHash;
@@ -675,7 +673,7 @@ public class Block {
     this.hash = calculateHash();
   }
 	
-  //Calcule du nouveau hash base sur le contenu des blocks
+  //Calcule du nouveau hash base sur le contenu des blocs
   public String calculateHash() {
     String calculatedhash = StringUtil.algoSha256( 
         previousHash +
@@ -694,13 +692,13 @@ public class Block {
       nonce ++;
       hash = calculateHash();
     }
-    System.out.println("Le block est mine : " + hash);
+    System.out.println("Le bloc est mine : " + hash);
   }
 }
 \end{lstlisting}
 
 \hspace{1cm} La nouvelle méthode \textbf{blockMine()} elle prend en compte une difficulté 0 que les mineurs doivent résoudre. Par contre une difficulté faible, comme par exemple  1 ou 2, peut être résolue presque instantanément sur la plupart des ordinateurs. 
-Ici nous allons ajouter la difficulté en tant que variable statique à la classe. Mettons à jour notre classe principale afin de déclencher la méthode blockMine () pour chaque nouveau block.Nous allons donc appeler méthode \textbf{isValidChain ()} qui va faire la vérification sur les blocks.
+Ici nous allons ajouter la difficulté en tant que variable statique à la classe. Mettons à jour notre classe principale afin de déclencher la méthode blockMine () pour chaque nouveau bloc.Nous allons donc appeler méthode \textbf{isValidChain ()} qui va faire la vérification sur les blocs.
 
 \begin{lstlisting}
 
@@ -736,11 +734,11 @@ public class MyFirstBlockchain {
 		
     String jsonBlockchain = new GsonBuilder().setPrettyPrinting().
                                             create().toJson(blockchain);
-    System.out.println("\n Notre  chaine de block: ");
+    System.out.println("\n Notre  chaine de bloc: ");
     System.out.println(jsonBlockchain);
   }
 
-  //On fait la verification	sur les blocks
+  //On fait la verification	sur les blocs
   public static Boolean isValidChain() {
     Block currentBlock; 
     Block previousBlock;
@@ -776,9 +774,9 @@ public class MyFirstBlockchain {
 
 \hspace{1cm} Si quelqu'un tentait de manipuler les données de notre système alors non seulement leur blockchain serait invalide mais ils ne seraient pas en mesure de créer une blockchain plus longue. Ainsi nous venons de mettre en place une blockchain : 
 \begin{itemize}
-    \item composée de blocks qui stockent des données. 
-    \item qui possède une signature numérique permettant d'enchaîner nos blocks. 
-    \item qui requiert une preuve de travail pour valider de chaque nouveau block.
+    \item composée de blocs qui stockent des données. 
+    \item qui possède une signature numérique permettant d'enchaîner nos blocs. 
+    \item qui requiert une preuve de travail pour valider de chaque nouveau bloc.
     \item qui peut être vérifiée afin de voir si les données qu'elle contient sont valides et inchangées.
 \end{itemize}
 
@@ -907,7 +905,7 @@ public class Transaction {
 
 Nous pouvons voir (à partir du bloc de code précédent) que notre signature sera un paquet d’octets, alors créons une méthode pour les générer. La première chose dont nous aurons besoin est quelques fonctions d'aide dans la classe StringUtil  :
 
-\hspace{1cm} Nous savons maintenant que notre signature sera un paquet d’octets, on va créer une petite  méthode pour les générer
+\hspace{1cm} Nous savons maintenant que notre signature sera un paquet d’octets, on va créer une petite  méthode pour les générer\\
 
 \begin{lstlisting}
 
@@ -971,7 +969,7 @@ public boolean verifySignature() {
 
 \end{lstlisting}
 
-\hspace{1cm} Et c'est à ce moment là que les mineurs vérifient les signatures car une nouvelle transaction est ajoutée à un block. Mais on peut également vérifier les signatures, lorsqu'on vérifie la validité de la blockchain.\\
+\hspace{1cm} Et c'est à ce moment là que les mineurs vérifient les signatures car une nouvelle transaction est ajoutée à un bloc. Mais on peut également vérifier les signatures, lorsqu'on vérifie la validité de la blockchain.\\
 Nous allons attaquer la dernière partie de notre code. Nous allons tester tout ceci sur un transfert. Reprenons notre classe principale
 
 \begin{lstlisting}
@@ -1069,7 +1067,7 @@ public class TransactionOutput {
 }
 \end{lstlisting}
 
-\hspace{1cm} Les sorties de transaction indiquent le montant final envoyé à chaque étape de la transaction. Ces dernières agissent comme une preuve que vous avez des pièces à envoyer quand elles sont référencées comme étant des entrées dans de nouvelles transactions. Les blocks de la chaîne peuvent aussi recevoir de nombreuses transactions et la blockchain peut être très longue, ce qui peut prendre des années pour traiter une nouvelle transaction puisque nous devons rechercher et vérifier toutes les entrées. Mais pour éviter ce temps d'attente nous conservons une sorte de collection supplémentaire de toutes les transactions non dépensées pouvant être utilisées. Ajoutons donc cette collection de tous les UTXO.
+\hspace{1cm} Les sorties de transaction indiquent le montant final envoyé à chaque étape de la transaction. Ces dernières agissent comme une preuve que vous avez des pièces à envoyer quand elles sont référencées comme étant des entrées dans de nouvelles transactions. Les blocs de la chaîne peuvent aussi recevoir de nombreuses transactions et la blockchain peut être très longue, ce qui peut prendre des années pour traiter une nouvelle transaction puisque nous devons rechercher et vérifier toutes les entrées. Mais pour éviter ce temps d'attente nous conservons une sorte de collection supplémentaire de toutes les transactions non dépensées pouvant être utilisées. Ajoutons donc cette collection de tous les UTXO.
 
 \begin{lstlisting}
 
@@ -1162,7 +1160,7 @@ public float getOutputsValue() {
 
 \hspace{1cm}Grâce à cette méthode, nous effectuons des vérifications afin de nous assurer que la transaction est valide, puis collectons les entrées et générons les sorties. Ensuite, vers la fin, nous rejetons les entrées de notre liste UTXO, ce qui signifie qu'une sortie de transaction ne peut être utilisée qu'une seule fois en entrée. D'où la valeur totale des entrées doit donc être utilisée pour que l'expéditeur l'expéditeur envoie le changement de retour à sur lui même.\\
 
-\hspace{1cm} Maintenant que notre système de transaction fonctionne, nous allons l'implémenter dans notre blockchain. Nous allons remplir les blocks par une liste de transactions. Par contre, il peut y avoir des milliers de transactions dans un seul bloc, trop nombreuses pour être incluses dans notre calcul de hachage. Mais dans ces cas là on utilise la racine de \textbf{merkle} des transactions. Ajoutons cette méthode pour générer d'abord le \textbf{merkleroot}.
+\hspace{1cm} Maintenant que notre système de transaction fonctionne, nous allons l'implémenter dans notre blockchain. Nous allons remplir les blocs par une liste de transactions. Par contre, il peut y avoir des milliers de transactions dans un seul bloc, trop nombreuses pour être incluses dans notre calcul de hachage. Mais dans ces cas là on utilise la racine de \textbf{merkle} des transactions. Ajoutons cette méthode pour générer d'abord le \textbf{merkleroot}.
 
 \begin{lstlisting}
 
@@ -1217,7 +1215,7 @@ public class Block {
     this.hash = calculateHash();
   }
 	
-  //On calcule un nouveau hash base sur le contenu des blocks
+  //On calcule un nouveau hash base sur le contenu des blocs
   public String calculateHash() {
     String calculatedhash = StringUtil.algoSha256( 
                             previousHash +
@@ -1241,14 +1239,13 @@ public class Block {
     System.out.println("Block Mined!!! : " + hash);
   }
 	
-    //On ajoute des transactions a ce block
+    //On ajoute des transactions a ce bloc
     public boolean addTransaction(Transaction transaction) {
     
       /*On traite la transaction et verifie si elle est valide
       si le block coincide avec genesis block on ignore */
       if(transaction == null) 
         return false;	
-        
       if((previousHash != "0")) {
         if((transaction.treatementTransaction() != true)) {
           System.out.println("Transaction failed. Delete.");
@@ -1261,7 +1258,6 @@ public class Block {
     }
 }
 \end{lstlisting}
-
 
 \hspace{1cm}Nous avons tous les éléments pour tester notre blockchain avec l'envoi des pièces Wallet à un autre. Nous allons partir de notre \textbf{block genesis} en le codant tout simplement. Nous allons aussi mettre à jour notre classe mère avec tout ce dont elle a besoin à savoir un contrôle de validité de la chaîne qui prend en compte les transactions et quelques transactions de test pour montrer que tout fonctionne.
 
@@ -1475,7 +1471,7 @@ Pour faire tourner notre blockchain un seul développeur ne nous suffira pas. il
         \item \textbf{Carte bancaire}
    
 
-\hspace{1cm} Le système de la blockchain pourrait aussi faire disparaître les contraintes liées aux cartes bancaires et nous offrir ainsi une meilleure gestion de nos transactions. Et quoi de plus beau que de pouvoir dépenser ses \textit{coins} dans la boulangerie en bas de chez soi? Pourtant c'est bien possible en mettant en place des cartes bancaires en crypto-monnaie. Cette carte est reliée à votre wallet, qui stocke "votre richesse". Et afin d'effectuer des transactions de manière décentralisée, le wallet doit en sorte être "multi-cryptos. C'est à dire donner accès à plusieurs devises virtuelles dans différentes chaînes de blocks, afin de ne pas imposer aux utilisateurs une unique monnaie. \\
+\hspace{1cm} Le système de la blockchain pourrait aussi faire disparaître les contraintes liées aux cartes bancaires et nous offrir ainsi une meilleure gestion de nos transactions. Et quoi de plus beau que de pouvoir dépenser ses \textit{coins} dans la boulangerie en bas de chez soi? Pourtant c'est bien possible en mettant en place des cartes bancaires en crypto-monnaie. Cette carte est reliée à votre wallet, qui stocke "votre richesse". Et afin d'effectuer des transactions de manière décentralisée, le wallet doit en sorte être "multi-cryptos. C'est à dire donner accès à plusieurs devises virtuelles dans différentes chaînes de blocs, afin de ne pas imposer aux utilisateurs une unique monnaie. \\
 
 \hspace{1cm} Cette carte permettra aussi de dépenser ses cryptomonnaies chez le commerçant qui, à priori, n'a pas à y voir un quelconque inconvénient. En effet pour lui c'est comme une carte bancaire normale puisqu'il recevra son argent en euro. Tout simplement parce que la conversion crypto en euro est instantanée. Comment ça marche? Lorsque vous effectuez un paiement chez le commerçant, une vente instantanée du même montant en crypto est donc initiée. La carte est ensuite chargée du montant en euro, sans laisser de trace et sans que le commerçant même sans aperçoive.\\
 
@@ -1524,7 +1520,7 @@ Pour faire tourner notre blockchain un seul développeur ne nous suffira pas. il
 
 \hspace{1cm} Nous avons aussi le problème de la volatilité de la monnaie si on cherche à transférer de l’argent sur base d’échanges de crypto monnaies. La monnaie est soumise à la loi de l'offre et de la demande, ce qui fait que le prix augmente quand la demande est forte et diminue lorsque la demande est faible. C'est pour ça qu'il est jugé dangereux d'investir dedans. C'est le cas d'un Un investisseur de 32 ans originaire des Émirats arabes unis qui a emprunté 139 000 dollars pour investir dans la crypto-monnaie. Mais il il a perdu 85\% de la somme et doit rembourser 3381 dollars par mois jusqu’en 2021 juste parce que la valeur de ses jetons ont chuté. Ainsi le cours de la monnaie est très instable et évolue de manière imprévisible, en témoignent les fortes fluctuations de son prix ces derniers mois, à des périodes très rapprochées. Le montant perçu lors d'une vente peut varier entre le moment de l'achat et celui de la réception du paiement. Voir \textbf{annexe 3} \\
 
-\hspace{1cm} Nous ne pouvons pas ne pas parler de la sécurité de la blockchain qui est très sécurisée. Nous avons vu,avec notre blockchain, que tout est sécurisé et qu'on passe le Proof of Work. Mais cet aspect est l'une des principales de la technique de la blockchain. Chaque transaction, comme on l'a vu, est inscrite bloc après bloc dans le registre de la cryptomonnaie après avoir été vérifiée par les mineurs, au travers du calcul cryptographique. Et quand quelqu’un détient plus de la moitié de la puissance de calcul,\textbf{51\% de la puissance de calcul de minage} , il a la main sur cette procédure de vérification et peut alors invalider des transactions passées. Ce qui ouvre les portes à une une arnaque appelée la  \textbf{double dépense}. Comment ça fonctionne? Le pirate réalise une double transaction du même montant, au même moment : un achat auprès d'un vendeur et un transfert vers l'un des wallets qu'il contrôle. Il va donc concentrer ses calculs sur la 2ème l'autre côté, le vendeur voit arriver une transaction tout à fait normale et décide donc l’accepter. Le montant est échangé contre un bien que le pirate va directement rapatrier le plus vite possible. Ensuite il diffuse ses propres blocks de vérification, ce qu'il peut faire parce qu'il contrôle plus de 50\% de la puissance de calcul de minage. Et hop la transaction vers le vendeur est annulée au profit de la transaction vers le wallet du pirate. Au final le vendeur ne recevra rien et le pirate y gagne doublement.
+\hspace{1cm} Nous ne pouvons pas ne pas parler de la sécurité de la blockchain qui est très sécurisée. Nous avons vu,avec notre blockchain, que tout est sécurisé et qu'on passe le Proof of Work. Mais cet aspect est l'une des principales de la technique de la blockchain. Chaque transaction, comme on l'a vu, est inscrite bloc après bloc dans le registre de la cryptomonnaie après avoir été vérifiée par les mineurs, au travers du calcul cryptographique. Et quand quelqu’un détient plus de la moitié de la puissance de calcul,\textbf{51\% de la puissance de calcul de minage} , il a la main sur cette procédure de vérification et peut alors invalider des transactions passées. Ce qui ouvre les portes à une une arnaque appelée la  \textbf{double dépense}. Comment ça fonctionne? Le pirate réalise une double transaction du même montant, au même moment : un achat auprès d'un vendeur et un transfert vers l'un des wallets qu'il contrôle. Il va donc concentrer ses calculs sur la 2ème l'autre côté, le vendeur voit arriver une transaction tout à fait normale et décide donc l’accepter. Le montant est échangé contre un bien que le pirate va directement rapatrier le plus vite possible. Ensuite il diffuse ses propres blocs de vérification, ce qu'il peut faire parce qu'il contrôle plus de 50\% de la puissance de calcul de minage. Et hop la transaction vers le vendeur est annulée au profit de la transaction vers le wallet du pirate. Au final le vendeur ne recevra rien et le pirate y gagne doublement.
 
  
 %%%%%%%%%%%%%% Conclusion générale %%%%%%%%%%%%%%
